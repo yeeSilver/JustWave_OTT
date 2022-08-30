@@ -87,7 +87,6 @@ const Input = styled(motion.input)`
   border: 1px solid ${(props) => props.theme.white.lighter};
 `;
 
-/*
 const logoVariants = {
   normal: {
     fillOpacity: 1,
@@ -96,7 +95,8 @@ const logoVariants = {
     fillOpacity: [0.8, 0.5, 0],
     strokeWidth: "20px",
   },
-}; */
+};
+/*
 const logoVariants = {
   normal: {
     fillOpacity: 1,
@@ -107,7 +107,7 @@ const logoVariants = {
       repeat: Infinity,
     },
   },
-};
+};*/
 
 const navVariants = {
   up: {
@@ -204,7 +204,6 @@ export default function Header() {
           </Search>
         </Col>
       </Nav>
-      <div style={{ height: "800px" }}></div>
     </>
   );
 }
