@@ -87,17 +87,25 @@ const Input = styled(motion.input)`
   border: 1px solid ${(props) => props.theme.white.lighter};
 `;
 
+/*
 const logoVariants = {
   normal: {
     fillOpacity: 1,
   },
   active: {
-    // fillOpacity: [0, 1, 0],
-    // transition: {
-    //   repeat: Infinity,
-    // },
     fillOpacity: [0.8, 0.5, 0],
     strokeWidth: "20px",
+  },
+}; */
+const logoVariants = {
+  normal: {
+    fillOpacity: 1,
+  },
+  active: {
+    fillOpacity: [0, 1, 0],
+    transition: {
+      repeat: Infinity,
+    },
   },
 };
 
@@ -130,12 +138,13 @@ export default function Header() {
 
   useEffect(() => {
     // scrollY.onChange(() => console.log(scrollY.get()));
-
-    if (scrollY.get() > 80) {
-      navAnimation.start("scroll");
-    } else {
-      navAnimation.start("up");
-    }
+    scrollY.onChange(() => {
+      if (scrollY.get() > 80) {
+        navAnimation.start("scroll");
+      } else {
+        navAnimation.start("up");
+      }
+    });
   }, [scrollY, navAnimation]);
 
   return (
