@@ -10,13 +10,6 @@ interface IMovie {
   overview: string;
 }
 
-export async function fetchMovies() {
-  const response = await fetch(
-    `${BASE_PATH}/movie/now_playing?api_key=${API_KEY}`
-  );
-  return await response.json();
-}
-
 export interface IFetchMoviesResult {
   page: number;
   results: IMovie[];
@@ -26,4 +19,15 @@ export interface IFetchMoviesResult {
   };
   total_pages: number;
   total_results: number;
+}
+/*export async function fetchMovies() {
+  const response = await fetch(
+    `${BASE_PATH}/movie/now_playing?api_key=${API_KEY}`
+  );
+  return await response.json();
+}*/
+export function fetchMovies() {
+  return fetch(`${BASE_PATH}/movie/now_playing?api_key=${API_KEY}`).then(
+    (response) => response.json()
+  );
 }

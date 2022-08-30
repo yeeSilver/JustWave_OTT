@@ -40,7 +40,7 @@ export default function Home() {
     ["movies", "nowPlaying"],
     fetchMovies
   );
-
+  console.log(data?.results[0].backdrop_path);
   return (
     <Wrapper>
       {isLoading ? (
