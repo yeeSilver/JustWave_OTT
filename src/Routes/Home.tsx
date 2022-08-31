@@ -16,14 +16,14 @@ const Loader = styled.div`
   height: 20vh;
 `;
 
-const Banner = styled.div<{ bgImg: string }>`
+const Banner = styled.div<{ $$bgImg: string }>`
   display: flex;
   flex-direction: column;
   justify-content: center;
   height: 100vh;
   padding: 60px;
   background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.8)),
-    url(${(props) => props.bgImg});
+    url(${(props) => props.$$bgImg});
   background-size: cover;
 `;
 
@@ -42,20 +42,20 @@ const Slider = styled.div`
   top: -100px;
 `;
 
-const Row = styled(motion.div)<{ bgImg: string }>`
+const Row = styled(motion.div)`
   display: grid;
   gap: 5px;
   grid-template-columns: repeat(6, 1fr);
   position: absolute;
   width: 100%;
-  background-image: url(${(props) => props.bgImg});
-  background-size: cover;
-  background-position: center center;
 `;
 
-const Box = styled(motion.div)`
+const Box = styled(motion.div)<{ $$bgImg: string }>`
   background-color: white;
   height: 200px;
+  background-image: url(${(props) => props.$$bgImg});
+  background-size: cover;
+  background-position: center center;
 `;
 
 const rowVariants = {
@@ -96,7 +96,7 @@ export default function Home() {
         <Loader>로딩 중입니다. 조금만 기다려주세요</Loader>
       ) : (
         <>
-          <Banner bgImg={makeImgPath(data?.results[0].backdrop_path || "")}>
+          <Banner $$bgImg={makeImgPath(data?.results[0].backdrop_path || "")}>
             <Title>{data?.results[0].title}</Title>
             <Overview>{data?.results[0].overview}</Overview>
           </Banner>
@@ -117,7 +117,7 @@ export default function Home() {
                   .map((movie) => (
                     <Box
                       key={movie.id}
-                      bgImg={makeImgPath(movie.backdrop_path, w500)}
+                      $$bgImg={makeImgPath(movie.backdrop_path, "w500")}
                     ></Box>
                   ))}
               </Row>
