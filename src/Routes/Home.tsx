@@ -56,6 +56,12 @@ const Box = styled(motion.div)<{ $$bgImg: string }>`
   background-image: url(${(props) => props.$$bgImg});
   background-size: cover;
   background-position: center center;
+  &:first-child {
+    transform-origin: center left; // 첫번째 이미지는 호버시 오른쪽으로만 커지게 함
+  }
+  &:last-child {
+    transform-origin: center right;
+  }
 `;
 
 const rowVariants = {
@@ -67,6 +73,21 @@ const rowVariants = {
   },
   exit: {
     x: -window.outerWidth - 5,
+  },
+};
+
+const boxVariants = {
+  normal: {
+    scale: 1,
+  },
+  hover: {
+    scale: 1.3,
+    y: -50,
+    transition: {
+      delay: 0.5,
+      duaration: 0.3,
+      type: "tween", // 바운싱 없애기
+    },
   },
 };
 
@@ -117,6 +138,10 @@ export default function Home() {
                   .map((movie) => (
                     <Box
                       key={movie.id}
+                      whileHover="hover"
+                      initial="normal"
+                      variants={boxVariants}
+                      transition={{ type: "tween" }}
                       $$bgImg={makeImgPath(movie.backdrop_path, "w500")}
                     ></Box>
                   ))}
