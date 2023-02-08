@@ -160,11 +160,9 @@ const infoVarinats = {
 };
 
 const offset = 6;
-
 interface IForm {
   keyword: string;
 }
-
 export default function Home() {
   const navigate = useNavigate();
   const moviePathMatch: PathMatch<string> | null = useMatch("/movies/:movieId");
@@ -279,3 +277,6 @@ export default function Home() {
     </Wrapper>
   );
 }
+// function useForm<T>(): { register: any; handleSubmit: any } {
+//   throw new Error("Function not implemented.");
+// }
