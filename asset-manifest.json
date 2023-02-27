@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/JustWave_OTT/static/css/main.e6c13ad2.css",
+    "main.js": "/JustWave_OTT/static/js/main.d9a047f2.js",
+    "index.html": "/JustWave_OTT/index.html",
+    "main.e6c13ad2.css.map": "/JustWave_OTT/static/css/main.e6c13ad2.css.map",
+    "main.d9a047f2.js.map": "/JustWave_OTT/static/js/main.d9a047f2.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e6c13ad2.css",
+    "static/js/main.d9a047f2.js"
+  ]
+}
